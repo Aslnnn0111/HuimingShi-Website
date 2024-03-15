@@ -127,6 +127,13 @@ h6 {
   overflow-y: auto;
 }
 
+.topleft {
+  position: fixed;
+  top: 8px;
+  left: 12px;
+  font-size: 18px;
+}
+
 @media (max-width: 991px) {
   #header {
     width: 300px;
