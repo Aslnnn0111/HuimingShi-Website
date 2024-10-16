@@ -270,6 +270,7 @@ h6 {
   left: 0;
 }
 
+
 .mobile-nav-active .mobile-nav-toggle {
   color: #fff;
   background-color: #0563bb;
@@ -339,6 +340,26 @@ h6 {
   color: #0563bb;
 }
 
+#hero .hero-button button{
+  position: absolute;
+  left: 40%; /* Center horizontally */
+  bottom: -160%;
+  padding: 10px 20px;
+  background-color: #ececec;
+  color: black; 
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+#hero .hero-button button:hover {
+   background-color: #3d3d3d;
+   color: white; /*font color*/
+   transform: translateX(-5%) scale(1.05);
+}
+
 @media (max-width: 992px) {
   #hero {
     text-align: center;
@@ -354,12 +375,16 @@ h6 {
     font-size: 20px;
     line-height: 24px;
   }
+  #hero .hero-button button{
+    left: 35%;
+  }
 }
 
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
 section {
+  background: #ffffff;
   padding: 60px 0;
   overflow: hidden;
 }
@@ -520,9 +545,9 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Resume
+# experience
 --------------------------------------------------------------*/
-.resume .resume-title {
+.experience .experience-title {
   font-size: 26px;
   font-weight: 700;
   margin-top: 20px;
@@ -530,14 +555,14 @@ section {
   color: #45505b;
 }
 
-.resume .resume-item {
+.experience .experience-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
   border-left: 2px solid #0563bb;
   position: relative;
 }
 
-.resume .resume-item h4 {
+.experience .experience-item h4 {
   line-height: 18px;
   font-size: 18px;
   font-weight: 600;
@@ -547,7 +572,7 @@ section {
   margin-bottom: 10px;
 }
 
-.resume .resume-item h5 {
+.experience .experience-item h5 {
   font-size: 16px;
   background: #f7f8f9;
   padding: 5px 15px;
@@ -556,19 +581,19 @@ section {
   margin-bottom: 10px;
 }
 
-.resume .resume-item ul {
+.experience .experience-item ul {
   padding-left: 20px;
 }
 
-.resume .resume-item ul li {
+.experience .experience-item ul li {
   padding-bottom: 10px;
 }
 
-.resume .resume-item:last-child {
+.experience .experience-item:last-child {
   padding-bottom: 0;
 }
 
-.resume .resume-item::before {
+.experience .experience-item::before {
   content: "";
   position: absolute;
   width: 16px;
@@ -618,6 +643,7 @@ section {
 .portfolio #portfolio-flters li.filter-active {
   color: #0563bb;
 }
+
 
 .portfolio #portfolio-flters li:last-child {
   margin-right: 0;
@@ -744,6 +770,7 @@ section {
 
 
 
+
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
@@ -813,6 +840,165 @@ section {
 .portfolio-details .portfolio-description li{
   list-style-type: circle
 }
+
+/*--------------------------------------------------------------
+# Design
+--------------------------------------------------------------*/
+.Design .Design-item {
+  margin-bottom: 30px;
+}
+
+.Design #Design-flters {
+  padding: 0;
+  margin: 0 auto 25px auto;
+  list-style: none;
+  text-align: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 2px 15px;
+}
+
+.Design #Design-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #272829;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.Design #Design-flters li:hover,
+.Design #Design-flters li.filter-active {
+  color: #0563bb;
+}
+
+.Design #Design-flters li:last-child {
+  margin-right: 0;
+}
+
+.Design .Design-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: rgba(69, 80, 91, 0.8);
+}
+
+.Design .Design-wrap::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.Design .Design-wrap .Design-info {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Design .Design-wrap .Design-info::before {
+  display: block;
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  border-top: 3px solid #d7dce1;
+  border-left: 3px solid #d7dce1;
+  transition: all 0.5s ease 0s;
+  z-index: 9994;
+}
+
+.Design .Design-wrap .Design-info::after {
+  display: block;
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+  border-bottom: 3px solid #d7dce1;
+  border-right: 3px solid #d7dce1;
+  transition: all 0.5s ease 0s;
+  z-index: 9994;
+}
+
+.Design .Design-wrap .Design-info h4 {
+  font-size: 20px;
+  color: #45505b;
+  font-weight: 600;
+}
+
+.Design .Design-wrap .Design-info p {
+  color: #45505b;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+
+.Design .Design-wrap .Design-links {
+  text-align: center;
+  z-index: 4;
+}
+
+.Design .Design-wrap .Design-links a {
+  color: #45505b;
+  margin: 0 2px;
+  font-size: 28px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.Design .Design-wrap .Design-links a:hover {
+  color: #148af9;
+}
+
+.Design .Design-wrap:hover::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.Design .Design-wrap:hover .Design-info {
+  opacity: 1;
+}
+
+.Design .Design-wrap:hover .Design-info::before {
+  top: 15px;
+  left: 15px;
+}
+
+.Design .Design-wrap:hover .Design-info::after {
+  bottom: 15px;
+  right: 15px;
+}
+
+
 
 /*--------------------------------------------------------------
 # Services
