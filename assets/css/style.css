@@ -767,7 +767,12 @@ section {
   right: 15px;
 }
 
-
+@media (min-width: 992px) {
+  .portfolio #portfolio-flters li {
+    padding: 10px 13px;
+    font-size: 13px;
+  }
+}
 
 
 
