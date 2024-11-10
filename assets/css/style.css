@@ -846,6 +846,22 @@ section {
   list-style-type: circle
 }
 
+.portfolio-details iframe {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  border: none; /* Optional: Remove iframe border */
+  object-fit: cover; /* Optional: Ensures content covers the iframe without distortion */
+}
+
+
+@media (min-width: 992px) {
+  .portfolio-details iframe {
+    padding-top: 20px;
+    position: relative;
+  }
+}
+
 /*--------------------------------------------------------------
 # Design
 --------------------------------------------------------------*/
