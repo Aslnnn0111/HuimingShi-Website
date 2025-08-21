@@ -618,34 +618,61 @@ section,
   color: var(--accent-color);
 }
 
-#hero .hero-button button{
+/* === Hero Scroll Button (Link with bouncing arrow) === */
+/* 让容器固定在 hero 底部、水平居中 */
+#hero .hero-button {
   position: absolute;
-  left: 40%; /* Center horizontally */
-  bottom: -160%;
-  padding: 10px 20px;
-  background-color: #ececec;
-  color: black; 
-  border: none;
+  left: 50%;
+  bottom: 48px;            /* 想更靠下可调为 32~64px */
+  transform: translateX(-50%);
+  z-index: 3;              /* 高过 .hero:before 的遮罩 */
+  pointer-events: auto;
+}
+#hero .hero-button .scroll-btn {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* 文字和箭头间距 */
+  padding: 10px 24px; /* ← 调小 */
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
+  color: #fff;
+  font-size: 16px;     /* ← 调小字体 */
+  font-weight: 500;
+  border-radius: 40px; /* 胶囊圆角，随尺寸缩小 */
+  text-decoration: none;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* 阴影也轻一点 */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#hero .hero-button button:hover {
-   background-color: #3d3d3d;
-   color: white; /*font color*/
-   transform: translateX(-5%) scale(1.05);
+#hero .hero-button .scroll-btn:hover {
+  background: linear-gradient(135deg, #5b86e5, #36d1dc);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* 箭头样式 + 浮动动画 */
+#hero .hero-button .scroll-btn .arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 12px solid currentColor;
+  margin-left: 6px;
+  animation: arrow-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%      { transform: translateY(8px); opacity: 0.9; }
 }
 
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
-  }
+  .hero h2 { font-size: 32px; }
+  .hero p { font-size: 20px; }
 
-  .hero p {
-    font-size: 20px;
-  }
-  #hero .hero-button button{
+  #hero .hero-button .scroll-btn {
     left: 34%;
   }
 }
